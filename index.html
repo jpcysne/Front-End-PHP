@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<?php
+// remove all session variables
+session_unset(); 
+
+// destroy the session 
+session_destroy(); 
+?>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Welcome to the PAC Lab</title>
+	<link rel="stylesheet" href="index.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	
+	 <script type="text/javascript" src="jquery-2.1.4.min.js"> </script>
+	 <script language="javascript" type="text/javascript" src="jquery.flot.resize.js"></script>
+  
+  </head>
+  <body>
+  <nav class="navbar navbar-custom navbar-static-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <img src="logo_loyola2.jpg" alt="Loyola Chicago University logo" align="left" height="50">
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li class="navbar-brand">Loyola PAC Lab</a></li>
+    </ul>
+            
+    
+</nav>
+  	
+  	<div id="middle">
+    <h1>Welcome to the PAC Lab!</h1>
+    <p>Please log in</p>
+    <!--<?php if (isset($loginError)): ?>
+      <p><?php htmlout($loginError); ?></p>
+    <?php endif; ?>-->
+    <form action="getUser.php" method="post" class="login">
+      <p>
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username">
+    </p>
+
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
+    </p>
+	  <p>
+		
+      <p class="login-submit">
+      <button type="submit" class="login-button">Login</button>
+    </p>
+	</div>
+    </form>
+  </body>
+</html>
+
+
+
