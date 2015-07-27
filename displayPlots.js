@@ -97,6 +97,56 @@
 		};
 		
 		
+		var options1 = {
+				series:{
+					lines:{
+						show:true,
+						lineWidth:10
+					},
+					shadowSize: 0
+				},
+				xaxis:{
+					mode:"time",
+					tickSize:[1,"second"],
+					tickFormatter: function(v,axis) {
+						var date= new Date(v);
+						if(date.getSeconds() % 1 == 0){
+							var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+	                        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+	                        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+	                        return hours + ":" + minutes + ":" + seconds;
+						}else{
+							return "";
+						}
+					},
+					zoomRange:null,
+					panRange:null
+				},
+				yaxis:{
+					zoomRange:null,
+					panRange:null
+				},
+				selection:{
+					mode:"xy"
+				},
+				zoom:{
+					interactive:true,
+					trigger:"dblclick",
+					amount:0.6
+				},
+				pan:{
+					interactive:flase,
+					cursor:"move",
+					frameRate:20
+				},
+				selection:{
+					mode: "xy"
+				}
+		};
+		
+		
+		
+		
 		var startData = getData(d1[0][0],d1[d1.length-1][0]);
 
 		var startLabels = getLabels(d2[0][0],d2[d2.length-1][1]);
@@ -217,7 +267,7 @@
 					xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to},
 					yaxis: { min: ranges.yaxis.from, max: ranges.yaxis.to},
 					
-				}),
+				})
 				
 			);
 
