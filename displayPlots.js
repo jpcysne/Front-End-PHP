@@ -87,62 +87,25 @@
 				
 			}
 
-			dfinal.push({label:'Low Activity', color:4, data: dactive_low});
-			dfinal.push({label:'Medium Activity', color:5, data: dactive_med});
-			dfinal.push({label:'High Activity', color:6, data: dactive_high});
-			dfinal.push({label: 'Inactive', color:7, data:dinactive});
+			dfinal.push({label:'Standing', color:4, data: dactive_low}); //Low Activity (Em pé)
+			dfinal.push({label:'Walking', color:5, data: dactive_med}); //Medium Activity (caminha)
+			dfinal.push({label:'Wheeling', color:6, data: dactive_high}); //High Activity (ciclismo)
+			dfinal.push({label:'Lying', color:7, data:dinactive}); //Inactive (deitado)
 			
 
 			return dfinal;
 		};
 		
-		
-		var options1 = {
-				series:{
-					lines:{
-						show:true,
-						lineWidth:10
-					},
-					shadowSize: 0
-				},
-				xaxis:{
-					mode:"time",
-					tickSize:[1,"second"],
-					tickFormatter: function(v,axis) {
-						var date= new Date(v);
-						if(date.getSeconds() % 1 == 0){
-							var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-	                        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-	                        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-	                        return hours + ":" + minutes + ":" + seconds;
-						}else{
-							return "";
-						}
-					},
-					zoomRange:null,
-					panRange:null
-				},
-				yaxis:{
-					zoomRange:null,
-					panRange:null
-				},
-				selection:{
-					mode:"xy"
-				},
-				zoom:{
-					interactive:true,
-					trigger:"dblclick",
-					amount:0.6
-				},
-				pan:{
-					interactive:flase,
-					cursor:"move",
-					frameRate:20
-				},
-				selection:{
-					mode: "xy"
-				}
-		};
+		// Part of the second flot
+		var ticks = [
+		                [-1.9, "Lying"],//deitado
+		                [-1.2, "Wheeling"],// ciclismo
+		                [-0.4, "Walking"],//caminhada
+		                [0.4, "Sitting"],//sentado
+		                [1.2, "Standing"],//Em pé
+		                [1.9, "Misc"] // Outros
+		            ];
+	
 		
 		
 		
@@ -208,11 +171,13 @@
 			},
 			series:{
 				lines: {
-					show:false
+					show:true,
+					lineWidth:10
 				},
 				points: {
 					show: true	
-				}
+				},
+				shandowSize:0
 			},
 			zoom: {
 				interactive: true,
@@ -227,13 +192,13 @@
 			},
 			xaxis: {
 				mode: "time",
-				zoomRange:[0.1, null],
-				panRange:[-10, null]
+				zoomRange:null,
+				panRange:null
 			},
 			yaxis: {
 				show:false,
-				zoomRange: [0.1, null],
-				panRange: [-10, null]
+				zoomRange: null,
+				panRange: null
 			},
 			selection:{
 				mode:'xy'
@@ -415,12 +380,12 @@ window.onload=checkReloading;
 		
 		<div class="container1">
 		
-			<div id="placeholder" class="placeholder1" style="float:left; width:650px;"></div>
+			<div id="placeholder" class="placeholder1" style="float:left"></div>
 			
 		</div>
 		
 		<div class="container1" style="margin-top: -30px; height:130px">
-			<div id="labels" class="placeholder1" style="margin-top: -20px; float:left;width:650px;height:125px;"></div>
+			<div id="labels" class="placeholder1" style="margin-top: -20px; float:left;height:125px;"></div>
 		</div>
 
 	</div>
