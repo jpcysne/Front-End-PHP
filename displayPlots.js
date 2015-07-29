@@ -87,10 +87,10 @@
 				
 			}
 
-			dfinal.push({label:'Standing', color:4, data: dactive_low}); //Low Activity (Em pé)
-			dfinal.push({label:'Walking', color:5, data: dactive_med}); //Medium Activity (caminha)
-			dfinal.push({label:'Wheeling', color:6, data: dactive_high}); //High Activity (ciclismo)
-			dfinal.push({label:'Lying', color:7, data:dinactive}); //Inactive (deitado)
+			dfinal.push({label:'Low Activity', color:4, data: dactive_low}); //Low Activity (Em pé)
+			dfinal.push({label:'Medium Activity', color:5, data: dactive_med}); //Medium Activity (caminha)
+			dfinal.push({label:'High Activity', color:6, data: dactive_high}); //High Activity (ciclismo)
+			dfinal.push({label:'Inactive', color:7, data:dinactive}); //Inactive (deitado)
 			
 
 			return dfinal;
@@ -98,12 +98,10 @@
 		
 		// Part of the second flot
 		var ticks = [
-		                [-1.9, "Lying"],//deitado
-		                [-1.2, "Wheeling"],// ciclismo
-		                [-0.4, "Walking"],//caminhada
-		                [0.4, "Sitting"],//sentado
-		                [1.2, "Standing"],//Em pé
-		                [1.9, "Misc"] // Outros
+		                [0.0, "Inactive"],
+		                [0.5, "Low Activity"],
+		                [1.5, "Medium Activity"],
+		                [2.0, "High Activity"] 
 		            ];
 	
 		
@@ -129,11 +127,13 @@
 			},
 			
 			yaxis:{
+			
 				zoomRange: null,
 				panRange: null
 			},
 			xaxis: {
 				mode: "time",
+				
 				zoomRange:null,
 				panRange:null
 			},
@@ -174,9 +174,7 @@
 					show:true,
 					lineWidth:10
 				},
-				points: {
-					show: true	
-				},
+				
 				shandowSize:0
 			},
 			zoom: {
@@ -196,7 +194,8 @@
 				panRange:null
 			},
 			yaxis: {
-				show:false,
+				show:true,
+				ticks:ticks,
 				zoomRange: null,
 				panRange: null
 			},
@@ -384,8 +383,8 @@ window.onload=checkReloading;
 			
 		</div>
 		
-		<div class="container1" style="margin-top: -30px; height:130px">
-			<div id="labels" class="placeholder1" style="margin-top: -20px; float:left;height:125px;"></div>
+		<div class="container1">
+			<div id="labels" class="placeholder1" style="margin-top: -20px; float:left;"></div>
 		</div>
 
 	</div>
