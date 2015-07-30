@@ -33,7 +33,8 @@
 			var dx = []; // acceleration in x
 			var dy = []; // acceleration in y
 			var dz = []; // acceleration in z
-
+			
+			
 			for (var x = 0;  x< d1.length; x++) {
 				
 				if(Date(d1[x][0])>=Date(x1) && Date(d1[x][0])<=Date(x2)){
@@ -68,19 +69,19 @@
 					//d.push([new Date(d2[x][0]).getTime(),0]); // straight line
 					//d.push([new Date(d2[x][1]).getTime(),0]); // straight line
 					if(d3[x]=='low activity'){
-						dactive_low.push([new Date(d2[x][0]).getTime(),0]);
-						dactive_low.push([new Date(d2[x][1]).getTime(),0]);
+						dactive_low.push([new Date(d2[x][0]).getTime(),0.2]);
+						dactive_low.push([new Date(d2[x][1]).getTime(),0.2]);
 					}
 					if(d3[x]=='medium activity'){
-						dactive_med.push([new Date(d2[x][0]).getTime(),0]);
-						dactive_med.push([new Date(d2[x][1]).getTime(),0]);
+						dactive_med.push([new Date(d2[x][0]).getTime(),0.3]);
+						dactive_med.push([new Date(d2[x][1]).getTime(),0.3]);
 					}if(d3[x]=='high activity'){
-						dactive_high.push([new Date(d2[x][0]).getTime(),0]);
-						dactive_high.push([new Date(d2[x][1]).getTime(),0]);
+						dactive_high.push([new Date(d2[x][0]).getTime(),0.4]);
+						dactive_high.push([new Date(d2[x][1]).getTime(),0.4]);
 					}
 					else{
-						dinactive.push([new Date(d2[x][0]).getTime(),0]);
-						dinactive.push([new Date(d2[x][1]).getTime(),0]);
+						dinactive.push([new Date(d2[x][0]).getTime(),0.1]);
+						dinactive.push([new Date(d2[x][1]).getTime(),0.1]);
 					}
 					
 				}
@@ -97,11 +98,13 @@
 		};
 		
 		// Part of the second flot
-		var ticks = [
-		                [0.0, "Inactive"],
-		                [0.5, "Low Activity"],
-		                [1.5, "Medium Activity"],
-		                [2.0, "High Activity"] 
+		var ticks = [	
+		             	[0.0, ""],
+		                [0.1, "Inactive"],
+		                [0.2, "Low Activity"],
+		                [0.3, "Medium Activity"],
+		                [0.4, "High Activity"], 
+		                [0.5, ""]
 		            ];
 	
 		
