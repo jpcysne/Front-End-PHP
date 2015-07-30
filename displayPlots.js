@@ -72,18 +72,21 @@
 						dactive_low.push([new Date(d2[x][0]).getTime(),0.2]);
 						dactive_low.push([new Date(d2[x][1]).getTime(),0.2]);
 					}else{
+						//dont mix the data with Inatice data
 						dactive_low.push(null);
 					}
 					if(d3[x]=='medium activity'){
 						dactive_med.push([new Date(d2[x][0]).getTime(),0.3]);
 						dactive_med.push([new Date(d2[x][1]).getTime(),0.3]);
 					}else{
+						//dont mix the data with Inatice data
 						dactive_med.push(null);
 					}
 					if(d3[x]=='high activity'){
 						dactive_high.push([new Date(d2[x][0]).getTime(),0.4]);
 						dactive_high.push([new Date(d2[x][1]).getTime(),0.4]);
 					}else{
+						//dont mix the data with Inatice data
 						dactive_high.push(null);
 					}
 					if(d3[x]=='inactive'){
@@ -106,14 +109,14 @@
 			return dfinal;
 		};
 		
-		// Part of the second flot
+		// the name in the Y of the flot. 
 		var ticks = [	
-		             	[0.0, ""],
+		             	[0.0, ""],// just to give space in the flot
 		                [0.1, "Inactive"],
 		                [0.2, "Low Activity"],
 		                [0.3, "Medium Activity"],
 		                [0.4, "High Activity"], 
-		                [0.5, ""]
+		                [0.5, ""]// just to give space in the flot
 		            ];
 	
 		
@@ -190,9 +193,11 @@
 				shandowSize:0
 			},
 			zoom: {
+				
+				// this is for the zoom out.
 				interactive: true,
 				trigger:"dblclick",
-				amount:0.5
+				amount:0.5// how much to zoom relative to current position, 2 = 200% (zoom in), 0.6 = 60% (zoom out)
 			},
 			pan: {
 				interactive: true,
@@ -280,7 +285,10 @@
 		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
 	});
 
-	
+	window.onresize = function(event) {
+		plot.push($.plot("#placeholder", startData, options));
+		plot.push()
+	}
 
 	// if(typeof recording=='undefined'){
 	// 	var recording=false;
@@ -362,7 +370,7 @@ window.onload=checkReloading;
 	
 </head>
 <body>
-
+	//navigation bar
 	<nav class="navbar navbar-custom navbar-static-top">
 	<div class="navbar-header">
 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
