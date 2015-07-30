@@ -71,17 +71,26 @@
 					if(d3[x]=='low activity'){
 						dactive_low.push([new Date(d2[x][0]).getTime(),0.2]);
 						dactive_low.push([new Date(d2[x][1]).getTime(),0.2]);
+					}else{
+						dactive_low.push(null);
 					}
 					if(d3[x]=='medium activity'){
 						dactive_med.push([new Date(d2[x][0]).getTime(),0.3]);
 						dactive_med.push([new Date(d2[x][1]).getTime(),0.3]);
-					}if(d3[x]=='high activity'){
+					}else{
+						dactive_med.push(null);
+					}
+					if(d3[x]=='high activity'){
 						dactive_high.push([new Date(d2[x][0]).getTime(),0.4]);
 						dactive_high.push([new Date(d2[x][1]).getTime(),0.4]);
+					}else{
+						dactive_high.push(null);
 					}
-					else{
+					if(d3[x]=='inactive'){
 						dinactive.push([new Date(d2[x][0]).getTime(),0.1]);
 						dinactive.push([new Date(d2[x][1]).getTime(),0.1]);
+					}else{
+						dinactive.push(null);
 					}
 					
 				}
