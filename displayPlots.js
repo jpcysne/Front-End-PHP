@@ -100,10 +100,10 @@
 				
 			}
 
-			dfinal.push({label:'Low Activity', color:4, data: dactive_low}); //Low Activity (Em pé)
-			dfinal.push({label:'Medium Activity', color:5, data: dactive_med}); //Medium Activity (caminha)
-			dfinal.push({label:'High Activity', color:6, data: dactive_high}); //High Activity (ciclismo)
-			dfinal.push({label:'Inactive', color:7, data:dinactive}); //Inactive (deitado)
+			dfinal.push({label:'Low Activity', color:"#fbab40", data: dactive_low}); //Low Activity (Em pé)
+			dfinal.push({label:'Medium Activity', color:"#fc5525", data: dactive_med}); //Medium Activity (caminha)
+			dfinal.push({label:'High Activity', color:"#ea0628", data: dactive_high}); //High Activity (ciclismo)
+			dfinal.push({label:'Inactive', color:"#fed801", data:dinactive}); //Inactive (deitado)
 			
 
 			return dfinal;
